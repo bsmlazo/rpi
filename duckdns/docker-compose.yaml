@@ -1,0 +1,15 @@
+version: "3"
+services:
+  duckdns:
+    image: ghcr.io/linuxserver/duckdns
+    container_name: duckdns
+    environment:
+      - PUID=1000 #optional
+      - PGID=1000 #optional
+      - TZ=America/Santiago
+      - SUBDOMAINS=wayoto #separado por "," para otro
+      - TOKEN=mitoken
+      - LOG_FILE=false #optional
+    volumes:
+      - ./config:/config #optional
+    restart: always

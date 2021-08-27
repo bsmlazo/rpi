@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  samba:
+    image: dperson/samba
+    container_name: samba
+    environment:
+      - TZ=America/Santiago
+      - USERID=0
+      - GROUPID=0
+      - WORKGROUP=Homeserver
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    stdin_open: true
+    read_only: false
+    tty: true
+    volumes:
+      - '/mnt/toshiba:/mnt:z'
+      - '/mnt/peliculas:/peliculas:z'
+      - '/mnt/toshiba/Claudia:/Clau:z'
+        #command: >
+        #-w "Homeserver"
+       #       -u "admin;C0mp4rt1d0.."
+       #       -s "toshiba;/mnt;yes;no;no;admin"
+#-r
+    command: '-s "Toshiba;/mnt;yes;no;no;admin;''none'';''none'';''Homeserver''" -s "Peliculas;/peliculas;yes;no;no;admin;''none'';''none'';''Homeserver''" -s "Clau;/Clau;yes;no;no;clau;''none'';''none'';''Homeserver''" -u "admin;C0mp4rt1d0.." -u "clau;clau2827"'
