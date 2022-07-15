@@ -1,0 +1,7 @@
+proc            /proc           proc    defaults          0       0
+PARTUUID=15a3cec7-01  /boot           vfat    defaults          0       2
+PARTUUID=15a3cec7-02  /               ext4    defaults,noatime  0       1
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
+UUID=F486BAF486BAB688 /mnt/peliculas ntfs defaults,auto,users,rw,nofail,exec 0 0
+UUID=8C4B-5C62 /mnt/toshiba exfat defaults,auto,users,rw,nofail,exec 0 0
